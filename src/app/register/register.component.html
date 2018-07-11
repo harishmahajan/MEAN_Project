@@ -1,0 +1,69 @@
+<div class="center">
+  <form>
+      <div class="form-group">
+          <label for="username">Name:</label>
+          <input type="text" class="form-control" name="username" [(ngModel)]="register.username" placeholder="Enter name" /> 
+          <span *ngIf="errUsernameBlank==true" class="err" >
+            Name should not blank..
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="mail">Email:</label>
+          <input type="text" name="mail" class="form-control" [(ngModel)]="register.mail" 
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  placeholder="Enter email" />
+          <span *ngIf="errMailBlank==true" class="err" >
+            Email should not blank..
+          </span>
+          <span *ngIf="errAccountExist==true" class="err">
+            Email is already exist. Please try with another Email.
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="text" name="password" class="form-control" [(ngModel)]="register.password" 
+          placeholder="Enter password" />
+        </div>
+
+
+        <div class="form-group">
+          <label for="contact">Contact:</label>
+          <input type="text" name="contact" class="form-control" [(ngModel)]="register.contact" maxlength="10" 
+          pattern="[0-9]{10}"  placeholder="Enter contact" />
+          <span *ngIf="errContactBlank==true" class="err" >
+            Contact should not blank..
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="dob">DOB:</label>
+          <input type="date" name="dob" class="form-control" [(ngModel)]="register.dob"  placeholder="Select date"/>
+          <span *ngIf="errUsernameBlank==true" class="err"  >
+            Dob should not blank..
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <!-- <input type="text" name="gender" class="form-control" [(ngModel)]="register.gender" /> -->
+          <select name="gender" class="form-control" style="height: 40px" [(ngModel)]="register.gender">
+            <!-- <option selected="selected">
+              Select gender
+            </option> -->
+            <option value="Male">
+              Male
+            </option>
+            <option value="Female">
+              Female
+            </option>
+          </select>
+          <span *ngIf="errUsernameBlank==true" class="err" >
+            Gender should not blank..
+          </span>
+        </div>
+
+       <button (click)="onRegister()" class="btn btn-success" *ngIf="flag==false">Save</button>
+       <button (click)="onUpdateRegister()"  class="btn btn-success" *ngIf="flag==true">Update</button>
+       <button class="btn btn-success marginleft"  *ngIf="flag==false" (click)="onReset()">Reset</button>
+  </form>
+</div>

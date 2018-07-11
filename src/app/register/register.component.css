@@ -1,0 +1,18 @@
+.center {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    top: 25%;
+    left: 45%;
+    margin-top: -25px;
+    margin-left: -50px;
+}
+.err{
+	color: red;
+}
+.marginleft{
+margin-left: 10px;
+}
+.ht{
+	height: 40px;
+}
